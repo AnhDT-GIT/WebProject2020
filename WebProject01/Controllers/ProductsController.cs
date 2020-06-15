@@ -116,7 +116,7 @@ namespace WebProject01.Controllers
         }
 
         [Authorize(Roles = "ADMIN")]
-        [HttpDelete]
+        //[HttpDelete]
         public ActionResult Delete(int id)
         {
             var product = _dbContext.Products.Single(c => c.Id == id);

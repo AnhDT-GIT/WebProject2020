@@ -275,6 +275,7 @@
     <Content Include="Content\img\burger\6.png" />
     <Content Include="Content\img\burger\7.png" />
     <Content Include="Content\img\burger\8.png" />
+    <Content Include="Content\img\cart.png" />
     <Content Include="Content\img\comment\comment_1.png" />
     <Content Include="Content\img\comment\comment_2.png" />
     <Content Include="Content\img\comment\comment_3.png" />
@@ -317,6 +318,7 @@
     <Content Include="Content\img\instragram\3.png" />
     <Content Include="Content\img\instragram\4.png" />
     <Content Include="Content\img\jessica-signature.png" />
+    <Content Include="Content\img\logo.jpg" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\offers\1.png" />
     <Content Include="Content\img\offers\2.png" />
