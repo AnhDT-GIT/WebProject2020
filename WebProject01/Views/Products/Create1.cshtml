@@ -1,0 +1,52 @@
+﻿@model WebProject01.ViewModels.ProductViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="section_title text-center mb-80">
+            <!--<span>Thực Đơn</span>-->
+            <h3>Thêm món mới</h3>
+        </div>
+    </div>
+</div>
+<!--<h2 class="col-lg-12">Create</h2>-->
+<form>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-md-6 col-lg-6">
+                @using (Html.BeginForm("Created", "Products", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.Label("Tên món ăn:")
+                        @Html.TextBoxFor(model => model.ProdName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProdName)
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Hình ảnh:")
+                        @Html.TextBoxFor(model => model.ProdImg, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProdImg)
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Mô tả:")
+                        @Html.TextBoxFor(model => model.ProdDes, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProdDes)
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Giá món ăn:")
+                        @Html.TextBoxFor(model => model.ProdPrice, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProdPrice)
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Loại danh mục:")
+                        @Html.DropDownListFor(model => model.Category, new SelectList(Model.Categories, "Id", "CateName"), "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Category)
+                    </div>
+                    <button type="submit" value="Save" class="btn btn-dark">Lưu</button>
+                }
+            </div>
+        </div>
+    </div>
+</form>
