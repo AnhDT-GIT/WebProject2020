@@ -92,7 +92,7 @@ namespace WebProject01.Controllers
             return View("Create", viewModel);
         }
 
-        [Authorize]
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Update(ProductViewModel viewModel)
@@ -115,8 +115,8 @@ namespace WebProject01.Controllers
             return RedirectToAction("EditDelete", "Products");
         }
 
-        [Authorize]
-        [HttpPost]
+        [Authorize(Roles = "ADMIN")]
+        [HttpDelete]
         public ActionResult Delete(int id)
         {
             var product = _dbContext.Products.Single(c => c.Id == id);
