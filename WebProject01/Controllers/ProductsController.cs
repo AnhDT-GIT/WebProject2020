@@ -17,6 +17,7 @@ namespace WebProject01.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "ADMIN")]
         // GET: Products
         public ActionResult Create()
         {
@@ -62,11 +63,49 @@ namespace WebProject01.Controllers
 
         public ActionResult Menu()
         {
-            var product = _dbContext.Products;
+            var getcategory = _dbContext.Categories
+               .ToList();
 
-            return View(product);
+
+            var getprod = _dbContext.Products
+                .ToList();
+
+
+
+            var viewModel = new GetView
+            {
+                Categories = getcategory,
+                Prod = getprod
+            };
+            return View(viewModel);
         }
 
+        public ActionResult Categories(int? id)
+        {
+            var getcategory = _dbContext.Categories
+              .ToList();
+
+            
+            var getprod = _dbContext.Products
+                .ToList();
+
+            
+            
+            
+             var getproduct = _dbContext.Products
+                .Where(a => a.CategoryId == id)
+                .ToList();
+
+            var viewModel = new GetView
+            {
+                Categories = getcategory,
+                Products = getproduct,
+                Prod = getprod
+            };
+            return View(viewModel);
+        }
+
+        [Authorize(Roles = "ADMIN")]
         public ActionResult EditDelete()
         {
             var product = _dbContext.Products;

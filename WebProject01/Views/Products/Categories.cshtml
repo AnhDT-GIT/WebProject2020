@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Thực đơn";
     Layout = "~/Views/Shared/_CustomLayout.cshtml";
 }
@@ -14,19 +13,21 @@
     </div>
 </div>
 
-
 <nav class="navbar navbar-expand-sm bg-warning justify-content-center">
     @{
+
+
         <ul class="navbar-nav">
+
             @foreach (var i in Model.Categories)
             {
-
                 <li class="nav-item">
                     <a class="nav-link" href="/Products/Categories/@i.Id">@i.CateName</a>
                 </li>
             }
+
         </ul>
-     }
+    }
 </nav>
 
 
@@ -35,19 +36,23 @@
         <div class="row">
             <!--col-xl-6 col-md-6 col-lg-6-->
             <!--col-md-3-->
-            @foreach (var product in Model.Prod)
+            @foreach (var product in Model.Products)
             {
                 <div class="col-xs-12 col-md-4 border border-warning">
 
 
 
+
+
+
+
                     <!--<div>
-                    //<img src="/Content/ProductIMGs/BGS/11.jpg" />
-                <img src="@product.ProdImg" />
-                <h4>@product.ProdName</h4>
-                <h4>@product.ProdDes</h4>
-                <h4>@product.ProdPrice</h4>
-            </div>-->
+                            //<img src="/Content/ProductIMGs/BGS/11.jpg" />
+                        <img src="@product.ProdImg" />
+                        <h4>@product.ProdName</h4>
+                        <h4>@product.ProdDes</h4>
+                        <h4>@product.ProdPrice</h4>
+                    </div>-->
                     <!--col-md-4 text-center col-sm-6 col-xs-6-->
                     <!--text-center-->
                     <div class="text-center">
@@ -68,3 +73,4 @@
         </div>
     </div>
 </div>
+
